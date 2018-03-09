@@ -61,9 +61,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="X4Z-LI-E9U"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VXQ-lp-x37" userLabel="Stack Buttons">
                                 <rect key="frame" x="10" y="430" width="355" height="162"/>
@@ -89,6 +86,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="pDr-8S-VN1"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +114,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="buttonStack" destination="VXQ-lp-x37" id="ezq-CJ-gxD"/>
                         <outlet property="countLabel" destination="M7d-F1-OMR" id="6ZV-zO-ZKQ"/>
+                        <outlet property="jumpButton" destination="mr5-SV-tb1" id="Trp-KO-n3Y"/>
+                        <outlet property="squatButton" destination="lUi-au-xQY" id="BI2-0G-n5M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

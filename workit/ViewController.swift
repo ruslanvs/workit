@@ -8,9 +8,16 @@
 
 import UIKit
 import CoreMotion
+import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var squatButton: UIButton!
+    @IBOutlet weak var jumpButton: UIButton!
+    @IBOutlet weak var buttonStack: UIStackView!
+    
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
     
     var motionManager = CMMotionManager()
     let opQueue = OperationQueue()
@@ -20,6 +27,10 @@ class ViewController: UIViewController {
     var jumpmode = false
     
     @IBAction func squatButtonPressed(_ sender: UIButton) {
+        DispatchQueue.main.async(execute: {
+            self.countLabel.font = self.countLabel.font.withSize(250)
+            self.squatButton.isHidden = true
+            self.jumpButton.isHidden = true})
         squatmode = true
         var start = false
         var current = 0.00
@@ -40,12 +51,23 @@ class ViewController: UIViewController {
                     if(current < -75 && pitch > -45 ){
                         self.count += 1
                         start = false
-                        DispatchQueue.main.async(execute: {self.countLabel.text = String(self.count)})
+                        DispatchQueue.main.async(execute: {
+                            self.countLabel.text = String(self.count)
+                            self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                            self.myUtterance.rate = 0.3
+                            self.synth.speak(self.myUtterance)
+                        })
                     }
                     if(current > 75 && pitch < 45 ){
                         self.count += 1
                         start = false
-                        DispatchQueue.main.async(execute: {self.countLabel.text = String(self.count)})
+                        DispatchQueue.main.async(execute: {
+                            self.countLabel.text = String(self.count)
+                            self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                            self.myUtterance.rate = 0.3
+                            self.synth.speak(self.myUtterance)
+                        })
+
                     }
                 }
             }
@@ -54,6 +76,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func jumpButtonPressed(_ sender: UIButton){
+        DispatchQueue.main.async(execute: {
+            self.countLabel.font = self.countLabel.font.withSize(250)
+            self.squatButton.isHidden = true
+            self.jumpButton.isHidden = true})
         jumpmode = true
         // set read speed
         motionManager.deviceMotionUpdateInterval = 0.024
@@ -66,7 +92,12 @@ class ViewController: UIViewController {
                     if self.jumpmode == true {
                         self.count += 1
                         print (self.count)
-                        DispatchQueue.main.async(execute: {self.countLabel.text = String(self.count)})
+                        DispatchQueue.main.async(execute: {
+                            self.countLabel.text = String(self.count)
+                            self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                            self.myUtterance.rate = 0.6
+                            self.synth.speak(self.myUtterance)
+                        })
                     }
                 }
             }
@@ -78,6 +109,9 @@ class ViewController: UIViewController {
         count = 0
         squatmode = false
         jumpmode = false
+        squatButton.isHidden = false
+        jumpButton.isHidden = false
+        countLabel.font = countLabel.font.withSize(120)
     }
     
     
