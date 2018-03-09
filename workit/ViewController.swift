@@ -10,9 +10,21 @@ import UIKit
 import CoreMotion
 
 class ViewController: UIViewController {
+    @IBOutlet weak var countLabel: UILabel!
     
     var motionManager = CMMotionManager()
     let opQueue = OperationQueue()
+    
+    @IBAction func squatButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func jumpButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        countLabel.text = "0"
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +53,8 @@ class ViewController: UIViewController {
             
             if let mydata = data {
                 print("mydata", mydata.gravity)
-                //                print("pitch raw", mydata.attitude.pitch)
-                //                print("pitch", self.degrees(mydata.attitude.pitch))
+                                print("pitch raw", mydata.attitude.pitch)
+                                print("pitch", self.degrees(mydata.attitude.pitch))
             }
         }
     }
