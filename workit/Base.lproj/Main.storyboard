@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Ds-RP-DAL">
-                                <rect key="frame" x="5" y="597" width="365" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Ds-RP-DAL" userLabel="Reset">
+                                <rect key="frame" x="10" y="597" width="355" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ba-hZ-9Ye">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Reset">
@@ -35,6 +35,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EnV-nf-iFN"/>
+                                    <constraint firstItem="1Ba-hZ-9Ye" firstAttribute="centerX" secondItem="6Ds-RP-DAL" secondAttribute="centerX" id="M6g-DA-JP9"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HbX-u5-kqb" userLabel="Stack Title">
@@ -62,11 +63,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VXQ-lp-x37" userLabel="Stack Buttons">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VXQ-lp-x37" userLabel="Stack Buttons">
                                 <rect key="frame" x="10" y="430" width="355" height="162"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUi-au-xQY">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="78.5"/>
                                         <color key="backgroundColor" red="0.083591314200000003" green="0.5220434625" blue="0.69430051810000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Squat">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +77,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mr5-SV-tb1">
-                                        <rect key="frame" x="0.0" y="86" width="355" height="76"/>
+                                        <rect key="frame" x="0.0" y="83.5" width="355" height="78.5"/>
                                         <color key="backgroundColor" red="0.083591314200000003" green="0.5220434625" blue="0.69430051810000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Jump">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -93,22 +94,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Ds-RP-DAL" secondAttribute="trailing" constant="5" id="3K4-fd-9dr"/>
                             <constraint firstItem="lxL-TY-cqz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3OH-Ru-9yq"/>
                             <constraint firstItem="HbX-u5-kqb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="3XM-sH-Sk6"/>
                             <constraint firstItem="VXQ-lp-x37" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="4xU-Ng-hxi"/>
                             <constraint firstItem="HbX-u5-kqb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Cdr-9p-g13"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Ds-RP-DAL" secondAttribute="bottom" constant="20" id="HRE-2S-fJG"/>
                             <constraint firstItem="lxL-TY-cqz" firstAttribute="top" secondItem="HbX-u5-kqb" secondAttribute="bottom" constant="5" id="HmX-TD-6nD"/>
                             <constraint firstItem="6Ds-RP-DAL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Net-mC-nP6"/>
                             <constraint firstItem="VXQ-lp-x37" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OHK-7w-3aa"/>
                             <constraint firstItem="6Ds-RP-DAL" firstAttribute="top" secondItem="VXQ-lp-x37" secondAttribute="bottom" constant="5" id="PhO-MD-kXL"/>
                             <constraint firstItem="VXQ-lp-x37" firstAttribute="top" secondItem="lxL-TY-cqz" secondAttribute="bottom" constant="5" id="SLD-v3-TXl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HbX-u5-kqb" secondAttribute="trailing" constant="5" id="Zlg-9Y-eGE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Ds-RP-DAL" secondAttribute="bottom" constant="20" id="nAg-qi-hBp"/>
+                            <constraint firstItem="6Ds-RP-DAL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="aKR-oy-do5"/>
+                            <constraint firstItem="6Ds-RP-DAL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="hDo-T9-OcM"/>
                             <constraint firstItem="HbX-u5-kqb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oRc-2c-H5i"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VXQ-lp-x37" secondAttribute="trailing" constant="10" id="rTS-Sg-eRV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Ds-RP-DAL" secondAttribute="trailing" constant="10" id="rpB-wR-yzY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lxL-TY-cqz" secondAttribute="trailing" constant="10" id="umb-Rp-U5q"/>
-                            <constraint firstItem="6Ds-RP-DAL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="w2j-uY-MDs"/>
                             <constraint firstItem="lxL-TY-cqz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="yUr-bl-krh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -117,6 +119,7 @@
                         <outlet property="buttonStack" destination="VXQ-lp-x37" id="ezq-CJ-gxD"/>
                         <outlet property="countLabel" destination="M7d-F1-OMR" id="6ZV-zO-ZKQ"/>
                         <outlet property="jumpButton" destination="mr5-SV-tb1" id="Trp-KO-n3Y"/>
+                        <outlet property="resetButton" destination="1Ba-hZ-9Ye" id="Fbn-kK-VNY"/>
                         <outlet property="squatButton" destination="lUi-au-xQY" id="BI2-0G-n5M"/>
                     </connections>
                 </viewController>

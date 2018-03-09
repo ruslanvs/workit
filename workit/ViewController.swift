@@ -15,12 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var squatButton: UIButton!
     @IBOutlet weak var jumpButton: UIButton!
     @IBOutlet weak var buttonStack: UIStackView!
+    @IBOutlet weak var resetButton: UIButton!
     
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
     var motionManager = CMMotionManager()
     let opQueue = OperationQueue()
+    
+    var messagebank = [ "You're doing great!", "Keep it up!", "You rock!", "Feel the burn!!", "Peanut Butter Jelly", "Bear House"]
     
     var count = 0
     var squatmode = false
@@ -53,8 +56,9 @@ class ViewController: UIViewController {
                         start = false
                         DispatchQueue.main.async(execute: {
                             self.countLabel.text = String(self.count)
-                            if self.count % 5 == 0 {
-                                self.myUtterance = AVSpeechUtterance(string: "You like what you see?")
+                            if Int(arc4random_uniform(6)) == 0 {
+                                let randphrase = self.messagebank[Int(arc4random_uniform(UInt32(self.messagebank.count)))]
+                                self.myUtterance = AVSpeechUtterance(string: randphrase)
                             }
                             else {
                                 self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
@@ -69,8 +73,9 @@ class ViewController: UIViewController {
                         start = false
                         DispatchQueue.main.async(execute: {
                             self.countLabel.text = String(self.count)
-                            if self.count % 5 == 0 {
-                                self.myUtterance = AVSpeechUtterance(string: "You like what you see?")
+                            if Int(arc4random_uniform(6)) == 0 {
+                                let randphrase = self.messagebank[Int(arc4random_uniform(UInt32(self.messagebank.count)))]
+                                self.myUtterance = AVSpeechUtterance(string: randphrase)
                             }
                             else {
                                 self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
@@ -105,14 +110,16 @@ class ViewController: UIViewController {
                         print (self.count)
                         DispatchQueue.main.async(execute: {
                             self.countLabel.text = String(self.count)
-                            if self.count % 5 == 0 {
-                                self.myUtterance = AVSpeechUtterance(string: "Keep going, get that green belt!")
+                            if Int(arc4random_uniform(6)) == 0 {
+                                let randphrase = self.messagebank[Int(arc4random_uniform(UInt32(self.messagebank.count)))]
+                                self.myUtterance = AVSpeechUtterance(string: randphrase)
+                                self.myUtterance.rate = 0.5
                             }
                             else {
                                 self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
-                                
+                                self.myUtterance.rate = 0.6
                             }
-                            self.myUtterance.rate = 0.6
+                            
                             self.synth.speak(self.myUtterance)
                             
                         })
@@ -135,14 +142,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if motionManager.isDeviceMotionAvailable {
-//            print("We can detect device motion")
-//            startReadingMotionData()
-//        }
-//        else {
-//            print("We cannot detect device motion")
-//        }
+        squatButton.layer.cornerRadius = 5
+        jumpButton.layer.cornerRadius = 5
+        resetButton.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {
@@ -150,21 +152,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-//    func startReadingMotionData() {
-//        // set read speed
-//        motionManager.deviceMotionUpdateInterval = 1
-//        // start reading
-//        motionManager.startDeviceMotionUpdates(to: opQueue) {
-//            (data: CMDeviceMotion?, error: Error?) in
-//
-//            if let mydata = data {
-//                print("mydata", mydata.gravity)
-//                                print("pitch raw", mydata.attitude.pitch)
-//                                print("pitch", self.degrees(mydata.attitude.pitch))
-//            }
-//        }
-//    }
     
     
     func degrees(_ radians: Double) -> Double {
