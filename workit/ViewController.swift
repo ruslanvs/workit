@@ -53,7 +53,13 @@ class ViewController: UIViewController {
                         start = false
                         DispatchQueue.main.async(execute: {
                             self.countLabel.text = String(self.count)
-                            self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                            if self.count % 5 == 0 {
+                                self.myUtterance = AVSpeechUtterance(string: "You like what you see?")
+                            }
+                            else {
+                                self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                                
+                            }
                             self.myUtterance.rate = 0.3
                             self.synth.speak(self.myUtterance)
                         })
@@ -63,11 +69,16 @@ class ViewController: UIViewController {
                         start = false
                         DispatchQueue.main.async(execute: {
                             self.countLabel.text = String(self.count)
-                            self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                            if self.count % 5 == 0 {
+                                self.myUtterance = AVSpeechUtterance(string: "You like what you see?")
+                            }
+                            else {
+                                self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                                
+                            }
                             self.myUtterance.rate = 0.3
                             self.synth.speak(self.myUtterance)
                         })
-
                     }
                 }
             }
@@ -94,9 +105,16 @@ class ViewController: UIViewController {
                         print (self.count)
                         DispatchQueue.main.async(execute: {
                             self.countLabel.text = String(self.count)
-                            self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                            if self.count % 5 == 0 {
+                                self.myUtterance = AVSpeechUtterance(string: "Keep going, get that green belt!")
+                            }
+                            else {
+                                self.myUtterance = AVSpeechUtterance(string: self.countLabel.text!)
+                                
+                            }
                             self.myUtterance.rate = 0.6
                             self.synth.speak(self.myUtterance)
+                            
                         })
                     }
                 }
